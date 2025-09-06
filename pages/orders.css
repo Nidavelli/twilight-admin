@@ -1,0 +1,72 @@
+/* orders.css */
+@import url("../themes/twilightGrimoire.css");
+/* Order List Layout */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+/* Card Design */
+.order-card {
+  display: grid;
+  grid-template-columns: 50px 1fr 1fr 120px 150px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(var(--shadow-color), 0.1);
+  align-items: center;
+  font-size: var(--font-size-sm);
+  transition: background-color var(--transition-fast);
+}
+
+/* Responsive Grid */
+@media (max-width: 900px) {
+  .order-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Details */
+.order-card ul {
+  margin: var(--spacing-xs) 0;
+  padding-left: var(--spacing-md);
+  list-style-type: disc;
+}
+
+.order-card p {
+  margin: 4px 0;
+}
+
+/* Dropdown */
+.status-dropdown {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  width: 100%;
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+}
+
+/* Loading Spinner */
+.loading-indicator {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(var(--shadow-color), 0.15);
+  font-size: var(--font-size-md);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-indicator i {
+  margin-right: var(--spacing-sm);
+}

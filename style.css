@@ -1,0 +1,54 @@
+/* ============================
+   GLOBAL STYLESHEET (style.css)
+=============================== */
+
+/* Import design tokens and theme colors */
+@import url("./themes/twilightGrimoire.css");
+
+/* Import page-specific components */
+@import url("./components/header.css");
+
+/* Import page-specific sub components */
+@import url("./components/sub_components/themeToggler.css");
+@import url("./components/sub_components/spinner.css");
+@import url("./components/sub_components/toast.css");
+
+/* ============================
+   BACKGROUND / BODY STYLING
+=============================== */
+
+/* Mist overlay */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/assets/bg.svg") center/cover no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Elevate login container */
+.login-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================
+   GLOBAL UTILITIES
+=============================== */
+
+html,
+body {
+  height: 100%;
+}
+
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}

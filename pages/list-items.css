@@ -1,0 +1,299 @@
+@import url("../themes/twilightGrimoire.css");
+
+/* Header Row */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--spacing-lg) 0;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: var(--font-size-xl);
+}
+
+.page-header .add-btn {
+  font-size: var(--font-size-sm);
+}
+
+/* Product Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xxl);
+}
+
+/* Product Card */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-surface);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  filter: brightness(90%);
+}
+
+/* Product Name and Price (above image) */
+.product-details {
+  padding: var(--spacing-sm);
+  text-align: center;
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.product-name {
+  font-weight: bold;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.1rem;
+}
+
+.product-price {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+/* Image */
+.product-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  display: block;
+  position: relative;
+  flex-grow: 1;
+}
+
+/* Action Buttons Overlay on Image */
+.card-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.product-card:hover .card-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.card-actions button {
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: white;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.card-actions button:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Skeleton */
+.skeleton {
+  background-color: color-mix(in srgb, var(--color-border) 40%, transparent);
+  border-radius: var(--radius-md);
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.skeleton-text {
+  height: 1rem;
+  margin: 0.5rem;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Modal and Form Styles - unchanged from your previous */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: #fff;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group small.error-message {
+  color: red;
+  display: none;
+}
+
+/* Modal overlay */
+.modal {
+  display: none; /* Hidden by default, shown via JS */
+  position: fixed; /* Fixed overlay */
+  top: 0;
+  left: 0;
+  /* width: 100vw;
+  height: 100vh; */
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+  z-index: 1000; /* On top */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow-y: auto; /* Scroll if content too tall */
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex; /* Flex container to center content */
+}
+
+/* Modal content box */
+.modal-content {
+  /* background: #222;
+  color: #fff;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  position: relative; */
+  background-color: #1e1e1e; /* dark theme */
+  margin: auto;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  position: relative;
+}
+
+/* Close button */
+.close-button {
+  /* position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  user-select: none; */
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 90vw;
+    padding: 1rem;
+  }
+}
+
+/* Full-screen overlay modal */
+#addInventoryModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex; /* activates modal center alignment */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner form content box */
+#addInventoryForm {
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Scanner container */
+#scanner-container {
+  width: 100%;
+  height: 300px;
+  margin-top: 1rem;
+  background: #000;
+  border: 2px solid #444;
+  border-radius: 8px;
+}

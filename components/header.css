@@ -1,0 +1,111 @@
+/* ========== Glassmorphic Header ========== */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-surface) 70%,
+    transparent
+  );
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm) 0;
+  transition: background-color 0.3s ease;
+}
+
+/* ========== Header Flex Layout ========== */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ========== Logo ========== */
+.main-header .logo {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ========== Nav & Actions ========== */
+.main-header .nav {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.main-header .nav a {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.main-header .nav a.active {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* ========== Hamburger Button ========== */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+/* ========== Responsive Behavior ========== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-header .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .main-header .nav.open {
+    display: flex;
+  }
+
+  .header-content {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: var(--spacing-sm);
+  }
+}
+
+.btn--icon {
+  background: transparent;
+  border: none;
+  padding: var(--spacing-xs);
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

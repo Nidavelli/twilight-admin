@@ -1,0 +1,75 @@
+/* components/login.css */
+
+/* Import design tokens (theme + base) */
+@import url("../themes/twilightGrimoire.css");
+
+/* ============================
+   GLOBAL STYLESHEET (style.css)
+=============================== */
+body {
+  background: linear-gradient(135deg, #ffc3a0 0%, #deb887 50%, #93a6cf 100%);
+  background-size: 200% 200%;
+  animation: bgShift 20s ease-in-out infinite;
+  position: relative;
+  min-height: 100vh;
+  font-family: var(--font-body);
+}
+
+/* Dark theme */
+html[data-theme="dark"] body {
+  background: linear-gradient(135deg, #1d2b45 0%, #4b3b7d 50%, #6a4f91 100%);
+  background-size: 200% 200%;
+  animation: bgShift 20s ease-in-out infinite;
+}
+
+@keyframes bgShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Layout for login container */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  background: transparent; /* 🔥 allow background to show */
+}
+
+/* Card specific styles for login */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.1); /* translucent */
+  backdrop-filter: blur(12px); /* glass effect */
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease;
+}
+
+html[data-theme="dark"] .login-card {
+  background: rgba(46, 45, 56, 0.2);
+  border: 1px solid rgba(200, 200, 209, 0.15);
+}
+
+/* Full-width button */
+.w-100 {
+  width: 100%;
+}
+
+/* Icons inside labels */
+.form-label i {
+  margin-right: var(--spacing-xs);
+  vertical-align: middle;
+}

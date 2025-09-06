@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <title>List Items</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="list-items.css" />
+  </head>
+
+  <body>
+    <!-- Custom Admin Header -->
+    <main-header></main-header>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Product List</h1>
+        <a href="add-items.html" class="btn btn-primary add-btn">Add Product</a>
+      </div>
+
+      <!-- This ID must match what your JS expects -->
+      <div id="productListContainer" class="products-grid"></div>
+    </div>
+
+    <!-- Popup Component -->
+    <custom-pop-up></custom-pop-up>
+
+    <!-- Edit Product Modal -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span id="closeEditModal" class="close-button">&times;</span>
+        <form id="editProductForm">
+          <input type="hidden" id="editProductId" />
+
+          <div class="form-group">
+            <label for="editProductName">Name</label>
+            <input type="text" id="editProductName" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="editProductDescription">Description</label>
+            <textarea id="editProductDescription" name="description"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="editProductRichDescription">Rich Description</label>
+            <textarea
+              id="editProductRichDescription"
+              name="rich_description"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="editProductBrand">Brand</label>
+            <input type="text" id="editProductBrand" name="brand" />
+          </div>
+
+          <div class="form-group">
+            <label for="editProductPrice">Price (KES)</label>
+            <input
+              type="number"
+              step="0.01"
+              min="0"
+              id="editProductPrice"
+              name="price_cents"
+              required
+            />
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label for="editProductIsFeatured">Featured</label>
+            <input
+              type="checkbox"
+              id="editProductIsFeatured"
+              name="is_featured"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="editProductKeywords">Keywords (comma separated)</label>
+            <input
+              type="text"
+              id="editProductKeywords"
+              name="keywords"
+              placeholder="keyword1, keyword2, keyword3"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Inventory Product Modal -->
+    <div id="addInventoryModal" style="display: none">
+      <form id="addInventoryForm">
+        <input type="hidden" id="inventoryProductId" />
+
+        <label for="inventoryQuantity">Number of inventory items to add:</label>
+        <input
+          type="number"
+          id="inventoryQuantity"
+          min="1"
+          max="100"
+          value="1"
+          required
+        />
+
+        <label>
+          <input type="checkbox" id="sameBarcodeCheckbox" />
+          Use same barcode for all items
+        </label>
+
+        <div id="dynamic-inputs-container"></div>
+
+        <button type="submit">Add Inventory</button>
+        <button type="button" id="closeInventoryModal">Cancel</button>
+
+        <div id="scanner-container" style="width: 100%; height: 300px"></div>
+      </form>
+    </div>
+
+    <!-- Scripts (keep in order to avoid race conditions) -->
+    <script
+      type="module"
+      src="../components/js-components/admin-header.js"
+    ></script>
+    <script type="module" src="../components/js-components/pop-up.js"></script>
+    <script type="module" src="../scripts/list-items.js"></script>
+  </body>
+</html>

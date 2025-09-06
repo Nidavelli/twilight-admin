@@ -1,0 +1,33 @@
+<!-- orders.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Orders</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../themes/twilightGrimoire.css" />
+    <link rel="stylesheet" href="orders.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <script type="module" src="../scripts/orders.js" defer></script>
+  </head>
+  <body>
+    <!-- Custom Admin Header -->
+    <main-header></main-header>
+    <div class="container">
+      <div class="orders-list" id="ordersList"></div>
+    </div>
+
+    <div class="loading-indicator" id="loadingIndicator">
+      <i class="fas fa-spinner fa-spin"></i> Loading...
+    </div>
+
+    <script
+      type="module"
+      src="../components/js-components/admin-header.js"
+    ></script>
+  </body>
+</html>
